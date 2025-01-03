@@ -12,7 +12,7 @@
 
 ## ENV
 
-| Env                 | Description     |
-|---------------------|-----------------|
-| PUBLIC_API_URL      | Backend API URL |
-| FRONTEND_PORT       | Port            |
+| Env            | Description     |
+|----------------|-----------------|
+| PUBLIC_API_URL | Backend API URL |
+| PORT           | Port            |
