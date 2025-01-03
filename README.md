@@ -2,19 +2,17 @@
 
 ## Overview
 
-| Item            | Name                                                                     |
-|-----------------|--------------------------------------------------------------------------|
-| Package Manager | yarn: `npm install` -> `npm run build` -> `npm run start` - recommended  |
-| Framework       | NextJS                                                                   |
-| Requests        |                                                                          |
-| Auth            | ServerSide - Cookies                                                     |
+| Item              | Name                                                     |
+|-------------------|----------------------------------------------------------|
+| Package Manager   | npm: npm install -> npm build -> npm start - recommended |
+| Framework         | NextJS                                                   |
+| State Manager     |                                                          |
+| Styling           |                                                          |
+| Localization      |                                                          |
 
 ## ENV
 
-| Env                 | Description        |
-|---------------------|--------------------|
-| NEXT_APP_NAME       | Next app name      |
-| NEXT_FRONT_DOMAIN   | Frontend domain    |
-| NEXT_PUBLIC_API_URL | Backend API URL    |
-| NEXT_IMAGE_DOMAIN   | API URL for images |
-| NEXT_PORT           | port               |
+| Env                 | Description     |
+|---------------------|-----------------|
+| PUBLIC_API_URL      | Backend API URL |
+| FRONTEND_PORT       | Port            |
