@@ -1,7 +1,7 @@
 {
   "hello-page": {
-    "title": "Hello!",
-    "subtitle": "Hello Hello!",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    "title": "Trellify",
+    "subtitle": "Comming soon...",
+    "description": "Trellify is a tool that allows you to track events from Trello, select boards for monitoring, and customize notifications that will be sent to a Telegram bot."
   }
 }

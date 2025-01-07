@@ -1,0 +1,11 @@
+services:
+  node:
+    container_name: trellify-${STAGE}
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+      target: ${STAGE}
+    restart: always
+    env_file: .env.${STAGE}
+    ports:
+      - '${HOST_PORT}:${PORT}'

@@ -15,4 +15,5 @@
 | Env            | Description     |
 |----------------|-----------------|
 | PUBLIC_API_URL | Backend API URL |
+| HOST_PORT      | Host hort       |
 | PORT           | Port            |

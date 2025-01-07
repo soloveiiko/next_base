@@ -1,7 +1,5 @@
-// lib/services/api.js
-
 export async function baseApi(endpoint, options = {}) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  const baseUrl = process.env.PUBLIC_API_URL;
 
   const response = await fetch(`${baseUrl}${endpoint}`, {
     ...options,

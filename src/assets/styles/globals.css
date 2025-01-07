@@ -1,16 +1,16 @@
+@import "./global/fonts.css";
+@import "./global/default.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    html {
-        --color-primary: #0094FF;
-        --color-secondary: #004373;
-        --color-typography: #0E1116;
-        --color-background: #ffffff;
-        --color-overlay: rgba(0, 0, 0, 0.8)
-    }
-
-    @import "./global/fonts.css";
-    @import "./global/default.css";
+  html {
+    --color-primary: #0094FF;
+    --color-secondary: #004373;
+    --color-typography: #0E1116;
+    --color-background: #ffffff;
+    --color-overlay: rgba(0, 0, 0, 0.8)
+  }
 }

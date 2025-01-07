@@ -1,22 +1,12 @@
 import { Suspense } from "react";
-import { notFound } from "next/navigation";
 import Loading from "@/app/[locale]/loading";
-import { Footer, Header } from "@/components/common";
-import { locales } from "@/i18n";
-import { NextIntlClientProvider, useMessages } from "next-intl";
 
-export default function HelloLayout({ children, params: { locale } }) {
-  const messages = useMessages();
-  if (!locales.includes(locale)) notFound();
+export default function HelloLayout({ children }) {
   return (
-    <html lang={locale}>
-      <NextIntlClientProvider messages={messages}>
-        <body className="flex min-h-screen flex-col bg-base-background text-base-typography">
-          <Suspense fallback={<Loading />}>
-            <main className="flex-grow">{children}</main>
-          </Suspense>
-        </body>
-      </NextIntlClientProvider>
-    </html>
+    <Suspense fallback={<Loading />}>
+      <main className="flex flex-grow items-center">
+        <div className="relative mx-auto flex flex-col">{children}</div>
+      </main>
+    </Suspense>
   );
 }

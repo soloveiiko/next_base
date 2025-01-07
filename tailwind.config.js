@@ -14,7 +14,7 @@ module.exports = {
         "14": ["0.875rem", { lineHeight: "1.25rem" }],
       },
       fontFamily: {
-        Inter: ["Inter", "sans-serif"],
+        pacifico: ["Pacifico", "serif"],
       },
     },
   },

@@ -1,0 +1,10 @@
+.docker
+.dockerignore
+docker-compose.yml
+.env.example
+node_modules
+npm-debug.log
+prettier.config.cjs
+README.md
+.next
+.git
