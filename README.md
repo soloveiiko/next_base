@@ -7,8 +7,8 @@
 | Package Manager   | npm: npm install -> npm build -> npm start - recommended |
 | Framework         | NextJS                                                   |
 | State Manager     |                                                          |
-| Styling           |                                                          |
-| Localization      |                                                          |
+| Styling           | Tailwind                                                 |
+| Localization      | next-intl                                                |
 
 ## ENV
 
