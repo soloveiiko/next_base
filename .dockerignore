@@ -5,6 +5,8 @@ docker-compose.yml
 node_modules
 npm-debug.log
 prettier.config.cjs
+.prettierignore
+.prettierrc
 README.md
 .next
 .git
