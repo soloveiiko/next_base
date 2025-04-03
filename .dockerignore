@@ -8,3 +8,6 @@ prettier.config.cjs
 README.md
 .next
 .git
+.github
+.gitignore
+scripts/deploy

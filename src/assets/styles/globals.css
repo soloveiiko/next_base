@@ -7,10 +7,10 @@
 
 @layer base {
   html {
-    --color-primary: #0094FF;
+    --color-primary: #0094ff;
     --color-secondary: #004373;
-    --color-typography: #0E1116;
+    --color-typography: #0e1116;
     --color-background: #ffffff;
-    --color-overlay: rgba(0, 0, 0, 0.8)
+    --color-overlay: rgba(0, 0, 0, 0.8);
   }
 }

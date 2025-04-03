@@ -1,4 +1,4 @@
-name: Trellify CI with Docker
+name: Next CI with Docker
 
 on:
   push:
@@ -16,15 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Create test .env
-        run: cp .env.example .env.test
-
-      - name: Run tests in Docker container
-        run: STAGE=test docker compose --env-file .env.test up --abort-on-container-exit --build
-
-      - name: Stop test containers
-        run: STAGE=test docker compose --env-file .env.test down
 
   deploy:
     runs-on: ubuntu-latest
@@ -44,10 +35,9 @@ jobs:
           script: |
             set -e
             cd ${{ secrets.SERVER_PROJECT_PATH }}
-            git checkout dev
+            git checkout staging
             git pull
-            [ -f .env.staging ] || cp .env.example .env.staging
-            STAGE=staging docker compose --env-file .env.staging up -d --build
+            bash scripts/deploy/deploy.sh ${{ secrets.SERVER_PROJECT_PATH }} staging
 
       - name: Deploy for main
         if: github.ref == 'refs/heads/main'
@@ -62,5 +52,4 @@ jobs:
             cd ${{ secrets.SERVER_PROJECT_PATH }}
             git checkout main
             git pull
-            [ -f .env.production ] || cp .env.example .env.production
-            STAGE=production docker compose --env-file .env.production up -d --build
+            bash scripts/deploy/deploy.sh ${{ secrets.SERVER_PROJECT_PATH }} production

@@ -18,6 +18,7 @@ FROM base AS staging
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
 EXPOSE ${PORT}
 CMD ["npm", "run", "start:staging"]
 
@@ -25,5 +26,6 @@ FROM base AS production
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
 EXPOSE ${PORT}
 CMD ["npm", "run", "start:production"]

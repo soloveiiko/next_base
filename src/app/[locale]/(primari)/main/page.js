@@ -1,4 +1,4 @@
-import {HelloPage} from "@/components/pages";
+import { HelloPage } from "@/components/pages";
 
 export default function Home() {
   return <HelloPage />;

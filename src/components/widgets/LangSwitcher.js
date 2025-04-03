@@ -16,7 +16,7 @@ export default function LangSwitcher() {
   return (
     <div className="flex gap-2">
       {locales.map((item, index) => (
-        <div key={index} className="b rounded-full border p-2">
+        <div key={index} className="rounded-full border p-2">
           <button
             className={`${locale === item ? "text-red-600" : ""}`}
             onClick={() => onLangChange(item)}

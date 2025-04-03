@@ -13,7 +13,7 @@ export default function Preloader() {
     };
   }, []);
   return (
-    <div className="fixed bottom-0 left-0 right-0 top-0 z-10 flex h-full w-full flex-col items-center justify-center gap-20 overflow-hidden bg-base-overlay">
+    <div className="fixed inset-0 z-10 flex size-full flex-col items-center justify-center gap-20 overflow-hidden bg-base-overlay">
       <ImageWrapper>
         <Image
           src="/images/loader.svg"

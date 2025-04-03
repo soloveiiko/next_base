@@ -7,7 +7,7 @@ export default function BaseLayout({ children }) {
     <>
       <Header />
       <Suspense fallback={<Loading />}>
-        <main className="flex-grow">
+        <main className="grow">
           <div className="relative mx-auto flex flex-col">{children}</div>
         </main>
       </Suspense>

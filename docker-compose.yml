@@ -1,6 +1,6 @@
+name: "next-${STAGE}"
 services:
   node:
-    container_name: trellify-${STAGE}
     build:
       context: .
       dockerfile: .docker/Dockerfile
@@ -8,4 +8,4 @@ services:
     restart: always
     env_file: .env.${STAGE}
     ports:
-      - '${HOST_PORT}:${PORT}'
+      - "${HOST_PORT}:${PORT}"
