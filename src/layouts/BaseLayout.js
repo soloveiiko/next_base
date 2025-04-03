@@ -1,16 +1,15 @@
 import { Suspense } from "react";
-import Loading from "@/app/[locale]/loading";
-import { Footer, Header } from "@/components";
+import { Footer, Header, Preloader } from "@/components";
 
 export default function BaseLayout({ children }) {
   return (
     <>
-      <Header />
-      <Suspense fallback={<Loading />}>
-        <main className="grow">
-          <div className="relative mx-auto flex flex-col">{children}</div>
-        </main>
+      <Suspense fallback={<Preloader />}>
+        <Header />
       </Suspense>
+      <main className="grow">
+        <div className="relative mx-auto flex flex-col">{children}</div>
+      </main>
       <Footer />
     </>
   );

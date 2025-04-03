@@ -1,10 +1,10 @@
-import "@/assets/styles/globals.css";
+import "@/assets/styles/index.css";
 
 import { HelloLayout } from "@/layouts";
 
 export const metadata = {
-  title: "Trellify",
-  description: "Trello notification app",
+  title: "",
+  description: "",
 };
 
 export default function Layout({ children }) {

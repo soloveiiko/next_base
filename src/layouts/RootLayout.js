@@ -1,20 +1,24 @@
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import "@/assets/styles/index.css";
+
+import Metrics from "@/app/metrics";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 
-export default async function RootLayout({ children, params }) {
-  const { locale } = await params;
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
-  const messages = await getMessages();
+export const metadata = {
+  title: "",
+  description: "",
+  alternates: {
+    locales: ["en", "uk"],
+    hrefs: ["/en", "/uk"],
+  },
+};
 
+export default async function RootLayout({ locale, messages, children }) {
   return (
     <html lang={locale}>
-      <body className="flex min-h-screen flex-col bg-base-background text-base-typography">
+      <body className="flex min-h-dvh flex-col justify-between">
         <NextIntlClientProvider messages={messages}>
           {children}
+          <Metrics />
         </NextIntlClientProvider>
       </body>
     </html>
