@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
+import StoreProvider from "@/app/[locale]/provider";
 import { routing } from "@/i18n/routing";
-import { RootLayout } from "@/layouts";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { RootLayout } from "src/components/layouts";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -16,7 +17,7 @@ export default async function Layout({ children, params }) {
 
   return (
     <RootLayout messages={messages} locale={locale}>
-      {children}
+      <StoreProvider>{children}</StoreProvider>
     </RootLayout>
   );
 }

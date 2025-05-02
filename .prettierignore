@@ -1,15 +1,7 @@
-node_modules
 .next
 .husky
+node_modules
 coverage
+package-lock.json
 .prettierignore
-.stylelintignore
-.eslintignore
-stories
-storybook-static
 *.log
-playwright-report
-.nyc_output
-test-results
-junit.xml
-docs

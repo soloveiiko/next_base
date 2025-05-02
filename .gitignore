@@ -27,10 +27,10 @@ yarn-error.log*
 .env*.local
 **/.env
 .env
-#.env.test
-#.env.development
-#.env.staging
-#.env.production
+.env.test
+.env.development
+.env.staging
+.env.production
 
 # vercel
 .vercel
@@ -41,3 +41,4 @@ next-env.d.ts
 
 .idea
 .vscode
+deploy.log

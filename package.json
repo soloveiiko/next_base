@@ -5,12 +5,16 @@
   "license": "MIT",
   "scripts": {
     "build": "next build",
+    "build:production": "dotenv -e .env.production -- next build",
+    "build:staging": "dotenv -e .env.staging -- next build",
+    "check": "prettier --check .",
     "format": "prettier --write .",
     "lint": "next lint",
     "prepare": "husky",
-    "start:dev": "APP_ENV=development dotenv -e .env.development -- next dev",
-    "start:production": "APP_ENV=production dotenv -e .env.production -- next start",
-    "start:staging": "APP_ENV=staging dotenv -e .env.staging -- next start",
+    "start:dev": "dotenv -e .env.development -- next dev",
+    "start:production": "dotenv -e .env.production -- next start",
+    "start:staging": "dotenv -e .env.staging -- next start",
+    "svg-imports": "node src/lib/utils/generateSvgImports.cjs public/svg public/svg/index.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -31,13 +35,15 @@
     ]
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.7.0",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
-    "next": "15.1.2",
+    "next": "15.2.4",
     "next-intl": "^3.15.0",
     "prop-types": "^15.8.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
@@ -45,7 +51,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.56.0",
+    "eslint": "^9.23.0",
     "eslint-config-next": "^15.2.4",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",

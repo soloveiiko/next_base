@@ -2,7 +2,7 @@
   "arrowParens": "always",
   "quoteProps": "preserve",
   "bracketSameLine": false,
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "importOrder": [
     "^~/styles/(.*)$",
     "",
@@ -23,6 +23,7 @@
     "^~/server/(.*)$",
     "^~/types/(.*)$",
     "^~/utils/(.*)$",
+    "^~/components/(.*)$",
     "",
     "^[./]",
     ""
@@ -34,7 +35,7 @@
     "prettier-plugin-tailwindcss"
   ],
   "tailwindConfig": "./tailwind.config.js",
-  "tailwindAttributes": ["propsClass"],
+  "tailwindAttributes": ["propsClass, class"],
   "printWidth": 80,
   "semi": true,
   "singleQuote": false,

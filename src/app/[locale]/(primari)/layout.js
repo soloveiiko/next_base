@@ -1,4 +1,4 @@
-import { BaseLayout } from "@/layouts";
+import { BaseLayout } from "src/components/layouts";
 
 export const metadata = {
   title: "",

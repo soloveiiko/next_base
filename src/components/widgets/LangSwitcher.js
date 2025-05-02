@@ -12,6 +12,7 @@ export default function LangSwitcher() {
   const onLangChange = (selectedLocale) => {
     router.push(pathname, { locale: selectedLocale });
   };
+  console.log("locales", locales);
 
   return (
     <div className="flex gap-2">

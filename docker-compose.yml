@@ -1,10 +1,12 @@
-name: "next-${STAGE}"
+name: "${APP_NAME}-${STAGE}"
 services:
   node:
     build:
       context: .
       dockerfile: .docker/Dockerfile
       target: ${STAGE}
+      args:
+        APP_ENV: ${STAGE}
     restart: always
     env_file: .env.${STAGE}
     ports:

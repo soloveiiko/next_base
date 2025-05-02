@@ -5,25 +5,25 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: [
+      ".next/",
+      ".husky/",
+      "node_modules/",
+      "coverage/",
+      "package-lock.json",
+      ".prettierignore",
+      "*.log",
+    ],
+  },
   ...compat.config({
     extends: [
-      "plugin:prettier/recommended",
+      "next",
       "plugin:tailwindcss/recommended",
-      "next/core-web-vitals",
+      "plugin:prettier/recommended",
     ],
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 2023,
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    rules: {
-      "prettier/prettier": "error",
-    },
+    rules: {},
   }),
 ];
+
 export default eslintConfig;

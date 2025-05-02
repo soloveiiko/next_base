@@ -4,9 +4,10 @@ import { fileURLToPath } from "url";
 import * as dotenv from "dotenv";
 import createNextIntlPlugin from "next-intl/plugin";
 
-const { PUBLIC_API_URL } = dotenv.config({
-  path: `./.env.${process.env.APP_ENV}`,
-}).parsed;
+const { NEXT_PUBLIC_BACKEND_URL, NEXT_PUBLIC_MICROSOFT_CLARITY } =
+  dotenv.config({
+    path: `./.env.${process.env.APP_ENV}`,
+  }).parsed || {};
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const withNextIntl = createNextIntlPlugin();
 
@@ -16,7 +17,8 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
   env: {
-    PUBLIC_API_URL,
+    NEXT_PUBLIC_BACKEND_URL,
+    NEXT_PUBLIC_MICROSOFT_CLARITY,
   },
 };
 

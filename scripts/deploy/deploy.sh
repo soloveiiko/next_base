@@ -34,10 +34,19 @@ echo "3️⃣Remove all unused images"
 docker image prune -af
 
 echo "4️⃣Starting new containers"
-STAGE=$STAGE docker compose --env-file $ENV_FILE_PATH up -d --build > deploy.log 2>&1
+STAGE=$STAGE docker compose --env-file $ENV_FILE_PATH up -d --build 2>&1 | tee deploy.log
 
-echo "5️⃣Checking if the app is live at https://$DOMAIN"
-if curl -fs "https://$DOMAIN" > /dev/null; then
+
+echo "5️⃣Save deployment log with timestamp"
+mkdir -p "$DEPLOY_DIR_PATH/logs"
+DATE=$(date '+%Y-%m-%d_%H-%M')
+mv deploy.log "$DEPLOY_DIR_PATH/logs/deploy_${STAGE}_${DATE}.log"
+echo "📦 Log saved as deploy_${STAGE}_${DATE}.log"
+
+sleep 30
+
+echo "6️⃣Checking if the app is live at https://$DOMAIN/api/health"
+if curl -fsL "https://$DOMAIN/api/health" > /dev/null; then
   echo "✅ Health check passed"
 
   # Notify success via Telegram
@@ -53,13 +62,7 @@ else
     -d chat_id=$TELEGRAM_CHAT_ID \
     -d text="🚨 Deploy *$PROJECT_NAME $STAGE* completed, but the site is not responding: https://$DOMAIN" \
     -d parse_mode=Markdown
-  exit 1
+    exit 1
 fi
-
-echo "6️⃣Save deployment log with timestamp"
-mkdir -p "$DEPLOY_DIR_PATH/logs"
-DATE=$(date '+%Y-%m-%d_%H-%M')
-mv deploy.log "$DEPLOY_DIR_PATH/logs/deploy_${STAGE}_${DATE}.log"
-echo "📦 Log saved as deploy_${STAGE}_${DATE}.log"
 
 echo "✅ Deployment script completed for $STAGE"

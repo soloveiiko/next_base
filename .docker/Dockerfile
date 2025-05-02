@@ -6,7 +6,9 @@ FROM base AS builder
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm run build
+ENV NODE_ENV=production
+ARG APP_ENV
+RUN npm run build:$APP_ENV
 
 FROM base AS test
 WORKDIR /app
@@ -19,6 +21,8 @@ WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/.env.staging ./.env.staging
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
 EXPOSE ${PORT}
 CMD ["npm", "run", "start:staging"]
 
@@ -27,5 +31,7 @@ WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/.env.production ./.env.production
+COPY --from=builder /app/next.config.mjs ./next.config.mjs
 EXPOSE ${PORT}
 CMD ["npm", "run", "start:production"]
